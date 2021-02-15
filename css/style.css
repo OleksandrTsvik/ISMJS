@@ -1,0 +1,104 @@
+body {
+    margin: 0;
+}
+
+table{
+    font-size: 20px;
+    margin: 20px auto 40px auto;
+    caption-side: top;
+    border: 1px black solid;
+    border-collapse: collapse;
+}
+
+th{
+    border: 2px black solid;
+    padding: 5px;
+}
+
+td{
+    border: 1px black solid;
+    line-height: 25px;
+    padding: 15px;
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+}
+
+input {
+    font-size: 20px;
+}
+
+.title {
+    background-color: #767676;
+    padding: 10px;
+    border-bottom: 3px solid #000000;
+}
+
+.form {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    font-size: 22px;
+}
+
+.check-label {
+    display: block;
+    margin: 5px;
+}
+
+.margin-left-10 {
+    margin-left: 10%;
+}
+
+.align-right {
+    text-align: right;
+}
+
+.color-white {
+    color: white;
+}
+
+.btn {
+    color: white;
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 4px;
+    padding: 8px 30px;
+}
+
+.link-home {
+    color: #ffd800;
+    background-color: #7595a9;
+    border-color: #7c8a94;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 30px;
+}
+
+.margin-left-25px {
+    margin-left: 25px;
+}
+
+#messageError {
+    color: red;
+    font-size: 18px;
+}
+
+#messageSolution {
+    color: green;
+    font-size: 19px;
+    margin-top: 20px;
+}
+
+.spacing {
+    letter-spacing: 2px;
+    margin-left: 5px;
+}
+
+.font-size-large {
+    font-size: large;
+}
