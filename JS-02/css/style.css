@@ -43,11 +43,6 @@ input {
     font-size: 22px;
 }
 
-.check-label {
-    display: block;
-    margin: 5px;
-}
-
 .margin-left-10 {
     margin-left: 10%;
 }
@@ -79,10 +74,6 @@ input {
     padding: 8px 30px;
 }
 
-.margin-left-25px {
-    margin-left: 25px;
-}
-
 #messageError {
     color: red;
     font-size: 18px;
@@ -103,10 +94,6 @@ input {
 .spacing {
     letter-spacing: 2px;
     margin-left: 5px;
-}
-
-.font-size-large {
-    font-size: large;
 }
 
 .align-left {
@@ -171,4 +158,12 @@ textarea {
 
 #matrixTable {
     clear: both;
+}
+
+#determinantMatrix {
+    clear: both;
+}
+
+#buttonClearMatrix {
+    margin-top: 25px;
 }
