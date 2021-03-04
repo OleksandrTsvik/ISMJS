@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1a0fa241-fd8c-4d6e-ae5c-9bfc1ab452ce" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="0acf278e-1dfb-4f54-b46f-558436138d3e" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../JS-01/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../JS-01/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JS-01/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../JS-01/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,8 +22,10 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectId" id="1oTSFxiY5ZoTWLmPd9sRz9xDRvJ" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectId" id="1pA2pBi2Fr2bjJM4uTeK1yGYbIu" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -33,23 +35,23 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../Web/Programs ООП/L2" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../Web/Programs ООП/L4" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="1a0fa241-fd8c-4d6e-ae5c-9bfc1ab452ce" name="Default Changelist" comment="" />
-      <created>1613308991280</created>
+      <changelist id="0acf278e-1dfb-4f54-b46f-558436138d3e" name="Default Changelist" comment="" />
+      <created>1614611755012</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1613308991280</updated>
-      <workItem from="1613308992743" duration="10682000" />
-      <workItem from="1613319867399" duration="626000" />
-      <workItem from="1613406753410" duration="10684000" />
-      <workItem from="1613678667792" duration="308000" />
+      <updated>1614611755012</updated>
+      <workItem from="1614611756304" duration="5749000" />
+      <workItem from="1614705508943" duration="16779000" />
+      <workItem from="1614796743112" duration="10276000" />
+      <workItem from="1614857920499" duration="15456000" />
     </task>
     <servers />
   </component>
@@ -67,10 +69,5 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <ignored-roots>
-      <path value="$PROJECT_DIR$" />
-    </ignored-roots>
   </component>
 </project>

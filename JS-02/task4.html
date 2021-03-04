@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task4</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script async src="js/task4.js"></script>
+</head>
+<body>
+<div class="header">
+    <h1 class="margin-left-10"><a class="link-home" href="index.html" title="Home">JS-02</a></h1>
+    <p class="align-right color-white">Цвік Олександр Сергійович <span class="spacing">ІПЗ</span>-20-3[2]</p>
+</div>
+<div class="form">
+    <div class="form-user">
+        <p hidden id="messageError"></p>
+        <div class="field"><label class="label-form" for="inputCountRows">Кількість рядків таблиці</label><input type="text" id="inputCountRows"/></div>
+        <div class="field"><label class="label-form" for="inputCountColumns">Кількість стовпців таблиці</label><input type="text" id="inputCountColumns"/></div>
+        <div class="field"><label class="label-form" for="inputMinNum">Мінімальне число</label><input type="text" id="inputMinNum"/></div>
+        <div class="field"><label class="label-form" for="inputMaxNum">Максимальне число</label><input type="text" id="inputMaxNum"/></div>
+        <button class="btn" id="buttonGenerateMatrix">Generate a matrix</button>
+    </div>
+    <div class="form-buttons">
+        <button class="btn" id="buttonTranspositionMatrix">Транспонувати матрицю</button>
+        <button disabled style="opacity:0.6" class="btn" id="buttonCalculateDeterminantMatrix">Обрахувати детермінант матриці</button>
+        <button class="btn" id="buttonMoveMatrixColumnsOneRight">Змістити стовпців матриці на один вправо</button>
+        <button class="btn" id="buttonAddNewRowMatrix">Додати новий рядок до матриці</button>
+        <button class="btn" id="buttonAddColumnMatrix">Додати нового стовпця до матриці</button>
+    </div>
+    <div id="matrixTable"></div>
+</div>
+</body>
+</html>
