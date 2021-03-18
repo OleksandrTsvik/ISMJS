@@ -14,7 +14,8 @@ buttonAdd.addEventListener('click', function () {
     let txtFirstName = removeFirstSpaces(inputFirstName.value);
     let txtLastName = removeFirstSpaces(inputLastName.value);
     let txtGender = removeFirstSpaces(inputGender.value);
-    let txtAddress = removeFirstSpaces(inputAddress.value);
+    let txtAddressStreet = removeFirstSpaces(inputAddress1.value);
+    let txtAddressState = removeFirstSpaces(inputAddress2.value);
     let txtBirthDate = removeFirstSpaces(inputBirthDate.value);
     let txtNickname = removeFirstSpaces(inputNickname.value);
     let txtPassword = removeFirstSpaces(inputPassword.value);
@@ -24,7 +25,8 @@ buttonAdd.addEventListener('click', function () {
         txtFirstName === '' ||
         txtLastName === '' ||
         txtGender === '' ||
-        txtAddress === '' ||
+        txtAddressStreet === '' ||
+        txtAddressState === '' ||
         txtBirthDate === '' ||
         txtNickname === '' ||
         txtPassword === '' ||
@@ -33,10 +35,10 @@ buttonAdd.addEventListener('click', function () {
         messError.style.display = 'block';
         messError.innerHTML = "Заповніть всі поля!";
     } else {
-        dataList.append( '\n\n' + txtFirstName + '\n');
-        dataList.append(txtLastName + '\n');
+        dataList.append( `\n\n${txtFirstName} ${txtLastName}\n`);
         dataList.append(txtGender + '\n');
-        dataList.append(txtAddress + '\n');
+        dataList.append(txtAddressStreet + '\n');
+        dataList.append(txtAddressState + '\n');
         dataList.append(txtBirthDate + '\n');
         dataList.append(txtNickname + '\n');
         dataList.append(txtPassword + '\n');
@@ -50,7 +52,8 @@ buttonAdd.addEventListener('click', function () {
         inputFirstName.value = '';
         inputLastName.value = '';
         inputGender.value = '';
-        inputAddress.value = '';
+        inputAddress1.value = '';
+        inputAddress2.value = '';
         inputBirthDate.value = '';
         inputNickname.value = '';
         inputPassword.value = '';
@@ -65,11 +68,13 @@ function createArrayFromTextarea(idTextarea) {
     lines = lines.split(/\n/);
 
     for (let i = 0; i < countLine; i += 9) {
+        let fullName = lines[i].split(' ');
+        let fullAddress = `${lines[i + 2]}<br />${lines[i + 3]}`;
         arr.push({
-            firstName: lines[i],
-            lastName: lines[i + 1],
-            gender: lines[i + 2],
-            address: lines[i + 3],
+            firstName: fullName[0],
+            lastName: fullName[1],
+            gender: lines[i + 1],
+            address: fullAddress,
             birthDate: lines[i + 4],
             nickname: lines[i + 5],
             password: lines[i + 6],
@@ -86,6 +91,9 @@ function generateTableHTML(array, linkForElem) {
 
     for (let key in array[0]) {
         let thElem = document.createElement('th');
+        if (key === 'birthDate') {
+            thElem.style.width = '120px';
+        }
         thElem.innerHTML = key[0].toUpperCase() + key.slice(1);
         trElem.appendChild(thElem);
     }

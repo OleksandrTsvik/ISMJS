@@ -3,9 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="0acf278e-1dfb-4f54-b46f-558436138d3e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/task4.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/task4.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/task4.html" beforeDir="false" afterPath="$PROJECT_DIR$/task4.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/task2.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/task2.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/task2.html" beforeDir="false" afterPath="$PROJECT_DIR$/task2.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,7 +36,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../Web/Programs ООП/L4" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -54,7 +53,10 @@
       <workItem from="1614705508943" duration="16779000" />
       <workItem from="1614796743112" duration="10276000" />
       <workItem from="1614857920499" duration="17214000" />
-      <workItem from="1614891794233" duration="2841000" />
+      <workItem from="1614891794233" duration="2842000" />
+      <workItem from="1614941196330" duration="45000" />
+      <workItem from="1615407459675" duration="632000" />
+      <workItem from="1616080540336" duration="1471000" />
     </task>
     <servers />
   </component>
