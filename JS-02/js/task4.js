@@ -1,184 +1,233 @@
 'use strict';
 
-let matrix = [];
-let messError = document.getElementById('messageError');
-let matrTable = document.getElementById('matrixTable');
-let minNum, maxNum;
+let blockMessageError = document.getElementById('messageError');
+let blockDeterminantMatrix = document.getElementById('determinantMatrix');
+let arrButtonsForm = document.querySelectorAll('div.form-buttons .btn');
+let arrInputsForm = document.querySelectorAll('div.form-user input');
+let minValue = -100, maxValue = 100;
+let matrix, htmlTable;
 
-buttonGenerateMatrix.addEventListener('click', function () {
-    determinantMatrix.style.display = 'none';
-    let countRows = parseInt(inputCountRows.value);
-    let countColumns = parseInt(inputCountColumns.value);
-    minNum = parseInt(inputMinNum.value);
-    maxNum = parseInt(inputMaxNum.value);
+class Matrix {
+    constructor(rowsCount, colsCount, paramsObject = null) {
+        this.rowsCount = rowsCount;
+        this.colsCount = colsCount;
+        this.matrix = [];
 
-    if (isNaN(countRows) || isNaN(countColumns) || isNaN(minNum) || isNaN(maxNum)) {
-        messError.style.display = 'block';
-        messError.innerHTML = "Заповніть всі поля!";
-    } else if (minNum >= maxNum) {
-        messError.style.display = 'block';
-        messError.innerHTML = "Мінімальне число не може бути більше або дорівнювати максимальному!&#129315;&#129315;&#128514;";
-    } else {
-        messError.style.display = 'none';
-        matrix = [];
-        generateMatrix(countRows, countColumns, minNum, maxNum);
-        createTableInHTML(matrix, matrTable);
-    }
-});
-
-buttonTranspositionMatrix.addEventListener('click', function () {
-    determinantMatrix.style.display = 'none';
-    if (matrix.length > 0) {
-        let transposeMatrix = new Array(matrix[0].length);
-        for (let i = 0; i < matrix[0].length; i++) {
-            transposeMatrix[i] = new Array(matrix.length);
+        if (paramsObject && paramsObject.hasOwnProperty('minValue')) {
+            minValue = paramsObject.minValue;
         }
 
-        for (let i = 0; i < matrix.length; i++) {
-            for (let j = 0; j < matrix[i].length; j++) {
-                transposeMatrix[j][i] = matrix[i][j];
+        if (paramsObject && paramsObject.hasOwnProperty('maxValue')) {
+            maxValue = paramsObject.maxValue;
+        }
+
+        for (let i = 0; i < rowsCount; i++) {
+            let rowArray = [];
+            for (let j = 0; j < colsCount; j++) {
+                rowArray.push(Math.round(Math.random() * (maxValue - minValue) + minValue));
             }
+            this.matrix.push(rowArray);
         }
+    }
 
-        // copying the transposeMatrix to an matrix
-        matrix = new Array(transposeMatrix.length);
-        for (let i = 0; i < transposeMatrix.length; i++) {
-            matrix[i] = new Array(transposeMatrix[i].length);
-        }
+    clearMatrix() {
+        this.matrix = [];
+    }
 
-        for (let i = 0; i < transposeMatrix.length; i++) {
-            for (let j = 0; j < transposeMatrix[i].length; j++) {
-                matrix[i][j] = transposeMatrix[i][j];
+    transposition() {
+        let transposeMatrix = [];
+        for (let i = 0; i < this.colsCount; i++) {
+            let transposeRow = [];
+            for (let j = 0; j < this.rowsCount; j++) {
+                transposeRow.push(this.matrix[j][i]);
             }
+            transposeMatrix.push(transposeRow);
         }
 
-        createTableInHTML(transposeMatrix, matrTable);
-    }
-});
+        let temp = this.rowsCount;
+        this.rowsCount = this.colsCount;
+        this.colsCount = temp;
 
-buttonCalculateDeterminantMatrix.addEventListener('click', function () {
-    if (matrix.length > 0) {
-        determinantMatrix.style.display = 'block';
-        determinantMatrix.innerHTML = `Детермінант матриці: ${getDeterminant(matrix)}.`;
+        this.matrix = transposeMatrix;
     }
-});
 
-buttonMoveMatrixColumnsOneRight.addEventListener('click', function () {
-    determinantMatrix.style.display = 'none';
-    if (matrix.length > 0) {
+    moveMatrixColumnsOneRight() {
         let arr = [];
-        for (let i = 0; i < matrix.length; i++) {
-            arr.push(matrix[i][matrix[i].length - 1]);
+        for (let i = 0; i < this.rowsCount; i++) {
+            arr.push(this.matrix[i][this.colsCount - 1]);
         }
 
-        for (let i = 0; i < matrix.length; i++) {
-            for (let j = matrix[i].length - 1; j > 0; j--) {
-                matrix[i][j] = matrix[i][j - 1];
+        for (let i = 0; i < this.rowsCount; i++) {
+            for (let j = this.colsCount - 1; j > 0; j--) {
+                this.matrix[i][j] = this.matrix[i][j - 1];
             }
+            this.matrix[i][0] = arr[i];
         }
-
-        for (let i = 0; i < matrix.length; i++) {
-            matrix[i][0] = arr[i];
-        }
-
-        createTableInHTML(matrix, matrTable);
     }
-});
 
-buttonAddNewRowMatrix.addEventListener('click', function () {
-    determinantMatrix.style.display = 'none';
-    if (matrix.length > 0) {
+    addRowToMatrix() {
         let rowArray = [];
-        for (let i = 0; i < matrix[0].length; i++) {
-            rowArray.push(Math.round(Math.random() * (maxNum - minNum) + minNum));
-        }
-        matrix.push(rowArray);
-
-        createTableInHTML(matrix, matrTable);
-    }
-});
-
-buttonAddColumnMatrix.addEventListener('click', function () {
-    determinantMatrix.style.display = 'none';
-    if (matrix.length > 0) {
-        for (let i = 0; i < matrix.length; i++) {
-            matrix[i].push(Math.round(Math.random() * (maxNum - minNum) + minNum));
-        }
-
-        createTableInHTML(matrix, matrTable);
-    }
-});
-
-buttonClearMatrix.addEventListener('click', function () {
-    determinantMatrix.style.display = 'none';
-    matrTable.innerHTML = "";
-    matrix = [];
-});
-
-function generateMatrix(rowCount, columnCount, minValue, maxValue) {
-    for (let i = 0; i < rowCount; i++) {
-        let rowArray = [];
-        for (let j = 0; j < columnCount; j++) {
+        for (let i = 0; i < this.colsCount; i++) {
             rowArray.push(Math.round(Math.random() * (maxValue - minValue) + minValue));
         }
-        matrix.push(rowArray);
-    }
-}
 
-function createTableInHTML(matr, idTable) {
-    let tableElem = document.createElement('table');
-    for (let i = 0; i < matr.length; i++) {
-        let trElem = document.createElement('tr');
-        for (let j = 0; j < matr[i].length; j++) {
-            let tdElem = document.createElement('td');
-            tdElem.innerHTML = matr[i][j];
-            trElem.appendChild(tdElem);
+        this.matrix.push(rowArray);
+        this.rowsCount++;
+    }
+
+    addColumnToMatrix() {
+        for (let i = 0; i < this.rowsCount; i++) {
+            this.matrix[i].push(Math.round(Math.random() * (maxValue - minValue) + minValue));
         }
-        tableElem.appendChild(trElem);
+
+        this.colsCount++;
     }
 
-    idTable.innerHTML = "";
-    idTable.appendChild(tableElem);
-}
+    // функцію взято з - http://mathhelpplanet.com/static.php?p=javascript-operatsii-nad-matritsami
+    getDeterminant() {
+        let N = this.matrix.length, B = [], denom = 1, exchanges = 0;
+        for (let i = 0; i < N; ++i) {
+            B[i] = [];
+            for (let j = 0; j < N; ++j)
+                B[i][j] = this.matrix[i][j];
+        }
 
-// функцію взято з - http://mathhelpplanet.com/static.php?p=javascript-operatsii-nad-matritsami
-function getDeterminant(A)
-{
-    let N = A.length, B = [], denom = 1, exchanges = 0;
-    for (let i = 0; i < N; ++i) {
-        B[i] = [];
-        for (let j = 0; j < N; ++j)
-            B[i][j] = A[i][j];
-    }
-
-    for (let i = 0; i < N - 1; ++i) {
-        let maxN = i, maxValue = Math.abs(B[i][i]);
-        for (let j = i + 1; j < N; ++j) {
-            let value = Math.abs(B[j][i]);
-            if (value > maxValue) {
-                maxN = j;
-                maxValue = value;
+        for (let i = 0; i < N - 1; ++i) {
+            let maxN = i, maxValue = Math.abs(B[i][i]);
+            for (let j = i + 1; j < N; ++j) {
+                let value = Math.abs(B[j][i]);
+                if (value > maxValue) {
+                    maxN = j;
+                    maxValue = value;
+                }
             }
+
+            if (maxN > i) {
+                let temp = B[i]; B[i] = B[maxN]; B[maxN] = temp;
+                ++exchanges;
+            } else {
+                if (maxValue === 0) return maxValue;
+            }
+
+            let value1 = B[i][i];
+
+            for (let j = i + 1; j < N; ++j) {
+                let value2 = B[j][i];
+                B[j][i] = 0;
+                for (let k = i+1; k < N; ++k)
+                    B[j][k] = (B[j][k] * value1 - B[i][k] * value2) / denom;
+            }
+            denom = value1;
         }
 
-        if (maxN > i) {
-            let temp = B[i]; B[i] = B[maxN]; B[maxN] = temp;
-            ++exchanges;
-        } else {
-            if (maxValue == 0) return maxValue;
-        }
+        if (exchanges % 2) return -B[N - 1][N - 1];
+        else return B[N - 1][N - 1];
+    }
+}
 
-        let value1 = B[i][i];
-
-        for (let j = i + 1; j < N; ++j) {
-            let value2 = B[j][i];
-            B[j][i] = 0;
-            for (let k = i+1; k < N; ++k)
-                B[j][k] = (B[j][k] * value1 - B[i][k] * value2) / denom;
-        }
-        denom = value1;
+class HTMLTable {
+    constructor(blockId) {
+        this.blockElement = document.getElementById(blockId);
     }
 
-    if (exchanges % 2) return -B[N - 1][N - 1];
-    else return B[N - 1][N - 1];
+    bindMatrix(matrix) {
+        this.matrix = matrix;
+    }
+
+    update() {
+        this.createTableInHTML(this.matrix);
+    }
+
+    clearBlock() {
+        this.blockElement.innerHTML = "";
+    }
+
+    createTableInHTML(matrixObject) {
+        let tableElem = document.createElement('table');
+        for (let i = 0; i < matrixObject.rowsCount; i++) {
+            let trElem = document.createElement('tr');
+            for (let j = 0; j < matrixObject.colsCount; j++) {
+                let tdElem = document.createElement('td');
+                tdElem.innerHTML = matrixObject.matrix[i][j];
+                trElem.appendChild(tdElem);
+            }
+            tableElem.appendChild(trElem);
+        }
+
+        this.clearBlock();
+        this.blockElement.appendChild(tableElem);
+    }
 }
+
+document.querySelector('#buttonGenerateMatrix').addEventListener('click', function () {
+    blockDeterminantMatrix.style.display = 'none';
+    let countRows = parseInt(document.getElementById('inputCountRows').value);
+    let countColumns = parseInt(document.getElementById('inputCountColumns').value);
+    minValue = parseInt(document.getElementById('inputMinNum').value);
+    maxValue = parseInt(document.getElementById('inputMaxNum').value);
+
+    if (isNaN(countRows) || isNaN(countColumns) || isNaN(minValue) || isNaN(maxValue)) {
+        blockMessageError.style.display = 'block';
+        blockMessageError.innerHTML = "Заповніть всі поля!";
+    } else if (minValue >= maxValue) {
+        blockMessageError.style.display = 'block';
+        blockMessageError.innerHTML = "Мінімальне число не може бути більше або дорівнювати максимальному!&#129315;&#129315;&#128514;";
+    } else if (countRows <= 0 || countColumns <= 0) {
+        blockMessageError.style.display = 'block';
+        blockMessageError.innerHTML = "Введено некоректні значення!";
+    } else {
+        blockMessageError.style.display = 'none';
+
+        arrButtonsForm.forEach(btn => {
+            btn.removeAttribute('disabled');
+            btn.style.opacity = '1';
+        });
+
+        matrix = new Matrix(countRows, countColumns, {minValue : minValue, maxValue : maxValue});
+        htmlTable = new HTMLTable('matrixTable');
+        htmlTable.bindMatrix(matrix);
+        htmlTable.update();
+    }
+});
+
+document.querySelector('#buttonTranspositionMatrix').addEventListener('click', function () {
+    blockDeterminantMatrix.style.display = 'none';
+    matrix.transposition();
+    htmlTable.update();
+});
+
+document.querySelector('#buttonCalculateDeterminantMatrix').addEventListener('click', function () {
+    blockDeterminantMatrix.style.display = 'block';
+    blockDeterminantMatrix.innerHTML = `Детермінант матриці: ${matrix.getDeterminant()}.`;
+});
+
+document.querySelector('#buttonMoveMatrixColumnsOneRight').addEventListener('click', function () {
+    blockDeterminantMatrix.style.display = 'none';
+    matrix.moveMatrixColumnsOneRight();
+    htmlTable.update();
+});
+
+document.querySelector('#buttonAddNewRowMatrix').addEventListener('click', function () {
+    blockDeterminantMatrix.style.display = 'none';
+    matrix.addRowToMatrix();
+    htmlTable.update();
+});
+
+document.querySelector('#buttonAddNewColumnMatrix').addEventListener('click', function () {
+    blockDeterminantMatrix.style.display = 'none';
+    matrix.addColumnToMatrix();
+    htmlTable.update();
+});
+
+document.querySelector('#buttonClearMatrix').addEventListener('click', function () {
+    blockDeterminantMatrix.style.display = 'none';
+    htmlTable.clearBlock();
+    matrix.clearMatrix();
+
+    arrButtonsForm.forEach(btn => {
+        btn.disabled = 'true';
+        btn.style.opacity = '0.6';
+    });
+
+    arrInputsForm.forEach(input => input.value = '');
+});

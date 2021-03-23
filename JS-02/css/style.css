@@ -156,6 +156,10 @@ textarea {
     height: 275px;
 }
 
+.btn:disabled {
+    opacity: 0.6;
+}
+
 #matrixTable {
     clear: both;
 }
