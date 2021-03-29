@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hamburger</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script async src="js/index.js"></script>
+</head>
+<body>
+    <p id="pMessageError"></p>
+    <table>
+        <caption>Замовлення гамбургера</caption>
+        <tr>
+            <td>Вид гамбургера<span class="required">*</span></td>
+            <td>
+                <select id="selectSizeHamburger" required>
+                    <option selected disabled>Виберіть розмір гамбургера</option>
+                    <option value="SIZE_SMALL">Маленький (50 грн, 20 калорій)</option>
+                    <option value="SIZE_BIG">Великий (100 грн, 40 калорій) </option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Начинка гамбургера<span class="required">*</span></td>
+            <td>
+                <select id="selectStuffingHamburger" required>
+                    <option selected disabled>Виберіть начинку гамбургера</option>
+                    <option value="STUFFING_CHEESE">сиром (+ 10 грн, + 20 калорій)</option>
+                    <option value="STUFFING_SALAD">салатом (+ 20 грн, + 5 калорій)</option>
+                    <option value="STUFFING_POTATO">картоплею (+ 15 грн, + 10 калорій)</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>По бажанню</td>
+            <td>
+                <select id="selectToppingHamburger" required>
+                    <option value="nothing" selected>-</option>
+                    <option value="TOPPING_SAUCE">посипати приправою (+ 15 грн, 0 калорій)</option>
+                    <option value="TOPPING_MAYO">полити майонезом (+ 20 грн, + 5 калорій)</option>
+                </select>
+            </td>
+        </tr>
+        <tr id="trCostAndCountCalories">
+            <td>Вартість: <span id="spanPriceHamburger">0</span>грн.</td>
+            <td>Кількість калорій: <span id="spanCountCaloriesHamburger">0</span>.</td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button id="buttonShowCostAndCountCalories">Показати вартість та кількість калорій</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button id="buttonResetOrderHamburger">Скинути</button>
+            </td>
+            <td>
+                <button id="buttonBuyHamburger">Замовити</button>
+            </td>
+        </tr>
+    </table>
+    <div>
+        <textarea id="textareaAllOrders" readonly></textarea>
+    </div>
+</body>
+</html>

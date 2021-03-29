@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0acf278e-1dfb-4f54-b46f-558436138d3e" name="Default Changelist" comment="" />
+    <list default="true" id="52e73570-cabb-43e2-89a3-0539526fa1d1" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../JS-02/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../JS-02/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,16 +12,16 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="CSS File" />
         <option value="HTML File" />
         <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectId" id="1pA2pBi2Fr2bjJM4uTeK1yGYbIu" />
+  <component name="ProjectId" id="1qQN6WviZAvyNaC50RxDCELxjQq" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
   </component>
@@ -32,7 +34,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../Web/Web-технології Ч.1/Lab03" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -40,22 +42,12 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="0acf278e-1dfb-4f54-b46f-558436138d3e" name="Default Changelist" comment="" />
-      <created>1614611755012</created>
+      <changelist id="52e73570-cabb-43e2-89a3-0539526fa1d1" name="Default Changelist" comment="" />
+      <created>1617007683336</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1614611755012</updated>
-      <workItem from="1614611756304" duration="5749000" />
-      <workItem from="1614705508943" duration="16779000" />
-      <workItem from="1614796743112" duration="10276000" />
-      <workItem from="1614857920499" duration="17214000" />
-      <workItem from="1614891794233" duration="2842000" />
-      <workItem from="1614941196330" duration="45000" />
-      <workItem from="1615407459675" duration="632000" />
-      <workItem from="1616080540336" duration="2163000" />
-      <workItem from="1616254193985" duration="22000" />
-      <workItem from="1616514260619" duration="15409000" />
-      <workItem from="1616575814437" duration="14000" />
+      <updated>1617007683336</updated>
+      <workItem from="1617007685055" duration="18135000" />
     </task>
     <servers />
   </component>
@@ -72,6 +64,5 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
