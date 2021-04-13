@@ -24,40 +24,40 @@ export class Hamburger {
         this.toppings = {};
     }
 
-    static SIZE_SMALL = {
+    static SIZE_SMALL = Object.freeze({
         cost: 50,
         calories: 20
-    };
+    });
 
-    static SIZE_BIG = {
+    static SIZE_BIG = Object.freeze({
         cost: 100,
         calories: 40
-    };
+    });
 
-    static STUFFING_CHEESE = {
+    static STUFFING_CHEESE = Object.freeze({
         cost: 10,
         calories: 20
-    };
+    });
 
-    static STUFFING_SALAD = {
+    static STUFFING_SALAD = Object.freeze({
         cost: 20,
         calories: 5
-    };
+    });
 
-    static STUFFING_POTATO = {
+    static STUFFING_POTATO = Object.freeze({
         cost: 15,
         calories: 10
-    };
+    });
 
-    static TOPPING_SAUCE = {
+    static TOPPING_SAUCE = Object.freeze({
         cost: 15,
         calories: 0
-    };
+    });
 
-    static TOPPING_MAYO = {
+    static TOPPING_MAYO = Object.freeze({
         cost: 20,
         calories: 5
-    };
+    });
 
     addTopping(topping) {
         if (topping === Hamburger.TOPPING_MAYO) {

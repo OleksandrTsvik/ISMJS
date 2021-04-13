@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="52e73570-cabb-43e2-89a3-0539526fa1d1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/classHamburger.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/classHamburger.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +35,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../JS-04" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -50,7 +49,9 @@
       <option name="presentableId" value="Default" />
       <updated>1617007683336</updated>
       <workItem from="1617007685055" duration="18560000" />
-      <workItem from="1617293515559" duration="1005000" />
+      <workItem from="1617293515559" duration="1548000" />
+      <workItem from="1617458425934" duration="43000" />
+      <workItem from="1618320278317" duration="2236000" />
     </task>
     <servers />
   </component>
