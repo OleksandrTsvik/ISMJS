@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Paint</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script async src="js/index.js" type="module"></script>
+</head>
+<body>
+    <div class="row">
+        <div class="col-2">
+            <label>
+                Колір пензлика:
+                <input type="color" id="color-pen" />
+            </label>
+            <label>
+                Товщина пензлика:
+                <input type="number" list="list-width-pen" id="width-pen" />
+                <datalist id="list-width-pen"></datalist>
+            </label>
+            <label>
+                <input type="button" id="clear-pen" value="Гумка" />
+            </label>
+            <label>
+                <input type="button" id="clear-c1" value="Очистити" />
+            </label>
+        </div>
+        <div class="col-10">
+            <canvas id="c1"></canvas>
+        </div>
+    </div>
+</body>
+</html>
