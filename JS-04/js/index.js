@@ -5,6 +5,7 @@ let
     canvas = document.getElementById('c1'),
     selectedColorPen = document.getElementById('color-pen'),
     inputWidthPen = document.getElementById('width-pen'),
+    spanColorPaint = document.getElementById('color-paint'),
     spanWidthPaint = document.getElementById('width-paint'),
     listWidthPen = document.getElementById('list-width-pen'),
     radioArrPens = document.getElementsByName('pen'),
@@ -78,50 +79,39 @@ radioArrPens.forEach(radioBtn => radioBtn.addEventListener(('click'), function()
 }));
 
 radioBrushPen.addEventListener('click', function() {
-    for (let i = 0; i < labelsStyleRectangle.length; i++)
-        labelsStyleRectangle[i].style.display = 'none';
-    for (let i = 0; i < labelsStylePen.length; i++)
-        labelsStylePen[i].style.display = 'block';
-    for (let i = 0; i < labelsStyleEllipse.length; i++)
-        labelsStyleEllipse[i].style.display = 'none';
+    changeDisplayStyleArrayTags(labelsStylePen, 'block');
+    changeDisplayStyleArrayTags(labelsStyleRectangle, 'none');
+    changeDisplayStyleArrayTags(labelsStyleEllipse, 'none');
+    spanColorPaint.innerHTML = 'Колір пензлика: ';
     spanWidthPaint.innerHTML = 'Товщина пензлика: ';
 });
 
 radioLinePen.addEventListener('click', function() {
-    for (let i = 0; i < labelsStyleRectangle.length; i++)
-        labelsStyleRectangle[i].style.display = 'none';
-    for (let i = 0; i < labelsStylePen.length; i++)
-        labelsStylePen[i].style.display = 'block';
-    for (let i = 0; i < labelsStyleEllipse.length; i++)
-        labelsStyleEllipse[i].style.display = 'none';
+    changeDisplayStyleArrayTags(labelsStylePen, 'block');
+    changeDisplayStyleArrayTags(labelsStyleRectangle, 'none');
+    changeDisplayStyleArrayTags(labelsStyleEllipse, 'none');
+    spanColorPaint.innerHTML = 'Колір лінії: ';
     spanWidthPaint.innerHTML = 'Товщина лінії: ';
 });
 
 radioRectanglePen.addEventListener('click', function() {
-    for (let i = 0; i < labelsStyleRectangle.length; i++)
-        labelsStyleRectangle[i].style.display = 'block';
-    for (let i = 0; i < labelsStylePen.length; i++)
-        labelsStylePen[i].style.display = 'none';
-    for (let i = 0; i < labelsStyleEllipse.length; i++)
-        labelsStyleEllipse[i].style.display = 'none';
+    changeDisplayStyleArrayTags(labelsStyleRectangle, 'block');
+    changeDisplayStyleArrayTags(labelsStylePen, 'none');
+    changeDisplayStyleArrayTags(labelsStyleEllipse, 'none');
     spanWidthPaint.innerHTML = 'Ширина контуру: ';
 });
 
 radioEllipsePen.addEventListener('click', function() {
-    for (let i = 0; i < labelsStyleEllipse.length; i++)
-        labelsStyleEllipse[i].style.display = 'block';
-    for (let i = 0; i < labelsStylePen.length; i++)
-        labelsStylePen[i].style.display = 'none';
-    for (let i = 0; i < labelsStyleRectangle.length; i++)
-        labelsStyleRectangle[i].style.display = 'none';
+    changeDisplayStyleArrayTags(labelsStyleEllipse, 'block');
+    changeDisplayStyleArrayTags(labelsStylePen, 'none');
+    changeDisplayStyleArrayTags(labelsStyleRectangle, 'none');
     spanWidthPaint.innerHTML = 'Ширина контуру: ';
 });
 
 radioClearPen.addEventListener('click', function() {
-    for (let i = 0; i < labelsStyleRectangle.length; i++)
-        labelsStyleRectangle[i].style.display = 'none';
-    for (let i = 0; i < labelsStylePen.length; i++)
-        labelsStylePen[i].style.display = 'none';
+    changeDisplayStyleArrayTags(labelsStylePen, 'none');
+    changeDisplayStyleArrayTags(labelsStyleRectangle, 'none');
+    changeDisplayStyleArrayTags(labelsStyleEllipse, 'none');
     spanWidthPaint.innerHTML = 'Товщина гумки: ';
 });
 
@@ -129,16 +119,14 @@ btnClearCanvas.addEventListener('click', function() {
     paint.clear();
 });
 
-// Початкові значення при завантаженні сторінки
+// *** Початкові значення при завантаженні сторінки ***
 canvas.width = window.innerWidth * 0.81;
 canvas.height = window.innerHeight * 0.81;
 radioArrPens[0].checked = true;
 figureDrawing = 'Brush';
 inputWidthPen.value = 10;
-for (let i = 0; i < labelsStyleRectangle.length; i++)
-    labelsStyleRectangle[i].style.display = 'none';
-for (let i = 0; i < labelsStyleEllipse.length; i++)
-    labelsStyleEllipse[i].style.display = 'none';
+changeDisplayStyleArrayTags(labelsStyleRectangle, 'none');
+changeDisplayStyleArrayTags(labelsStyleEllipse, 'none');
 
 for (let i = 1; i <= 2000; ) {
     let elemOption = document.createElement('option');
@@ -155,4 +143,14 @@ for (let i = 1; i <= 2000; ) {
     } else if (i >= 1000 && i < 2000) {
         i += 100;
     } else break;
+}
+// ****************************************************
+
+function changeDisplayStyle(idTag, value) {
+    idTag.style.display = value;
+}
+
+function changeDisplayStyleArrayTags(arrIdTags, value) {
+    for (let i = 0; i < arrIdTags.length; i++)
+        changeDisplayStyle(arrIdTags[i], value);
 }

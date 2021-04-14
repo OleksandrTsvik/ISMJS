@@ -10,11 +10,11 @@
     <div class="row paint">
         <div class="col-2">
             <label class="style-pen">
-                Колір пензлика:
+                <span id="color-paint">Колір пензлика:</span>
                 <input type="color" id="color-pen" />
             </label>
             <label>
-                <span id="width-paint">Товщина пензлика:</span>
+                <span id="width-paint">Товщина пензлика: </span>
                 <input type="number" list="list-width-pen" id="width-pen" />
                 <datalist id="list-width-pen"></datalist>
             </label>
@@ -28,6 +28,15 @@
                 <input type="radio" id="rectangle-pen" name="pen" value="Rectangle" />Прямокутник
             </label>
             <label class="style-rectangle">
+                <input type="radio" name="rectangle" id="rectangle-stroke" value="RectangleStroke" disabled />Лише контур
+            </label>
+            <label class="style-rectangle">
+                <input type="radio" name="rectangle" id="rectangle-fill" value="RectangleFill" disabled />Лише заливка
+            </label>
+            <label class="style-rectangle">
+                <input type="radio" name="rectangle" id="rectangle-stroke-fill" value="RectangleStrokeFill" disabled />Контур і заливка
+            </label>
+            <label class="style-rectangle">
                 Колір заливки:
                 <input type="color" id="rectangle-color-fill" />
             </label>
@@ -37,6 +46,15 @@
             </label>
             <label>
                 <input type="radio" id="ellipse-pen" name="pen" value="Ellipse" />Еліпс
+            </label>
+            <label class="style-ellipse">
+                <input type="radio" name="ellipse" id="ellipse-stroke" value="EllipseStroke" disabled />Лише контур
+            </label>
+            <label class="style-ellipse">
+                <input type="radio" name="ellipse" id="ellipse-fill" value="EllipseFill" disabled />Лише заливка
+            </label>
+            <label class="style-ellipse">
+                <input type="radio" name="ellipse" id="ellipse-stroke-fill" value="EllipseStrokeFill" disabled />Контур і заливка
             </label>
             <label class="style-ellipse">
                 Колір заливки:
