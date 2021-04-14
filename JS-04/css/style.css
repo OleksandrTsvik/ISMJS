@@ -51,3 +51,7 @@ body {
 .paint label:last-of-type [type="button"] {
     padding: 2px 15px;
 }
+.paint .style-rectangle,
+.paint .style-ellipse {
+    background-color: #969696;
+}

@@ -9,12 +9,12 @@
 <body>
     <div class="row paint">
         <div class="col-2">
-            <label>
+            <label class="style-pen">
                 Колір пензлика:
                 <input type="color" id="color-pen" />
             </label>
             <label>
-                Товщина пензлика:
+                <span id="width-paint">Товщина пензлика:</span>
                 <input type="number" list="list-width-pen" id="width-pen" />
                 <datalist id="list-width-pen"></datalist>
             </label>
@@ -25,10 +25,26 @@
                 <input type="radio" id="line-pen" name="pen" value="Line" />Лінія
             </label>
             <label>
-                <input type="radio" id="rectangle-pen" name="pen" value="Rectangle" disabled />Прямокутник
+                <input type="radio" id="rectangle-pen" name="pen" value="Rectangle" />Прямокутник
+            </label>
+            <label class="style-rectangle">
+                Колір заливки:
+                <input type="color" id="rectangle-color-fill" />
+            </label>
+            <label class="style-rectangle">
+                Колір контуру:
+                <input type="color" id="rectangle-color-stroke" />
             </label>
             <label>
-                <input type="radio" id="ellipse-pen" name="pen" value="Ellipse" disabled />Еліпс
+                <input type="radio" id="ellipse-pen" name="pen" value="Ellipse" />Еліпс
+            </label>
+            <label class="style-ellipse">
+                Колір заливки:
+                <input type="color" id="ellipse-color-fill" />
+            </label>
+            <label class="style-ellipse">
+                Колір контуру:
+                <input type="color" id="ellipse-color-stroke" />
             </label>
             <label>
                 <input type="radio" id="clear-pen" name="pen" value="Eraser" />Гумка
