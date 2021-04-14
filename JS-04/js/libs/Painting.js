@@ -42,7 +42,7 @@ export class Painting {
         }
     }
 
-    drawRectangle(x1, y1, x2, y2, radius, colorFill = 'black', colorStroke = 'black') {
+    drawRectangleStrokeAndFill(x1, y1, x2, y2, radius, colorStroke = 'black', colorFill = 'black') {
         if (!this._isMouseDown) {
             this._ctx.beginPath();
             this._ctx.lineWidth = 2 * radius;
@@ -56,8 +56,31 @@ export class Painting {
         }
     }
 
-    drawEllipse(x1, y1, x2, y2, radius, colorFill = 'black', colorStroke = 'black') {
+    drawRectangleFill(x1, y1, x2, y2, radius, colorFill = 'black') {
+        if (!this._isMouseDown) {
+            this._ctx.beginPath();
+            this._ctx.lineWidth = 2 * radius;
+            this._ctx.fillStyle = colorFill;
 
+            this._ctx.rect(x1, y1, x2 - x1, y2 - y1);
+            this._ctx.fill();
+            this._ctx.closePath();
+        }
+    }
+
+    drawRectangleStroke(x1, y1, x2, y2, radius, colorStroke = 'black') {
+        if (!this._isMouseDown) {
+            this._ctx.beginPath();
+            this._ctx.lineWidth = 2 * radius;
+            this._ctx.strokeStyle = colorStroke;
+
+            this._ctx.rect(x1, y1, x2 - x1, y2 - y1);
+            this._ctx.stroke();
+            this._ctx.closePath();
+        }
+    }
+
+    drawEllipseStrokeAndFill(x1, y1, x2, y2, radius, colorStroke = 'black', colorFill = 'black') {
         if (!this._isMouseDown) {
             this._ctx.beginPath();
             this._ctx.lineWidth = 2 * radius;
@@ -69,6 +92,35 @@ export class Painting {
                     0, 2 * Math.PI, false);
             this._ctx.stroke();
             this._ctx.fill();
+            this._ctx.closePath();
+        }
+    }
+
+    drawEllipseFill(x1, y1, x2, y2, radius, colorFill = 'black') {
+        if (!this._isMouseDown) {
+            this._ctx.beginPath();
+            this._ctx.lineWidth = 2 * radius;
+            this._ctx.fillStyle = colorFill;
+
+            this._ctx.arc(x1, y1,
+                    Math.pow(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2), 0.5) / 2,
+                    0, 2 * Math.PI, false);
+            this._ctx.fill();
+            this._ctx.closePath();
+        }
+    }
+
+    drawEllipseStroke(x1, y1, x2, y2, radius, colorStroke = 'black') {
+        if (!this._isMouseDown) {
+            this._ctx.beginPath();
+            this._ctx.lineWidth = 2 * radius;
+            this._ctx.strokeStyle = colorStroke;
+
+            this._ctx.arc(x1, y1,
+                    Math.pow(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2), 0.5) / 2,
+                    0, 2 * Math.PI, false);
+            this._ctx.stroke();
+            this._ctx.closePath();
         }
     }
 

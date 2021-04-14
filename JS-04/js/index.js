@@ -9,10 +9,18 @@ let
     spanWidthPaint = document.getElementById('width-paint'),
     listWidthPen = document.getElementById('list-width-pen'),
     radioArrPens = document.getElementsByName('pen'),
+    radioArrRectangle = document.getElementsByName('rectangle'),
+    radioArrEllipse = document.getElementsByName('ellipse'),
     radioBrushPen = document.getElementById('brush-pen'),
     radioLinePen = document.getElementById('line-pen'),
     radioRectanglePen = document.getElementById('rectangle-pen'),
+    radioRectangleStroke = document.getElementById('rectangle-stroke'),
+    radioRectangleFill = document.getElementById('rectangle-fill'),
+    radioRectangleStrokeAndFill = document.getElementById('rectangle-stroke-fill'),
     radioEllipsePen = document.getElementById('ellipse-pen'),
+    radioEllipseStroke = document.getElementById('ellipse-stroke'),
+    radioEllipseFill = document.getElementById('ellipse-fill'),
+    radioEllipseStrokeAndFill = document.getElementById('ellipse-stroke-fill'),
     radioClearPen = document.getElementById('clear-pen'),
     labelsStylePen = document.getElementsByClassName('style-pen'),
     labelsStyleRectangle = document.getElementsByClassName('style-rectangle'),
@@ -55,10 +63,18 @@ canvas.addEventListener('mousemove', function(e) {
         paint.drawBrush(e.offsetX, e.offsetY, tempWidthPen, selectedColorPen.value);
     } else if (figureDrawing === 'Line') {
         paint.drawLine(x1, y1, x2, y2, tempWidthPen, selectedColorPen.value);
-    } else if (figureDrawing === 'Rectangle') {
-        paint.drawRectangle(x1, y1, x2, y2, tempWidthPen, inputRectangleColorFill.value, inputRectangleColorStroke.value);
-    } else if (figureDrawing === 'Ellipse') {
-        paint.drawEllipse(x1, y1, x2, y2, tempWidthPen, inputEllipseColorFill.value, inputEllipseColorStroke.value);
+    } else if (figureDrawing === 'RectangleStrokeAndFill' || figureDrawing === 'Rectangle') {
+        paint.drawRectangleStrokeAndFill(x1, y1, x2, y2, tempWidthPen, inputRectangleColorStroke.value, inputRectangleColorFill.value);
+    } else if (figureDrawing === 'RectangleFill') {
+        paint.drawRectangleFill(x1, y1, x2, y2, tempWidthPen, inputRectangleColorFill.value);
+    } else if (figureDrawing === 'RectangleStroke') {
+        paint.drawRectangleStroke(x1, y1, x2, y2, tempWidthPen, inputRectangleColorStroke.value);
+    } else if (figureDrawing === 'EllipseStrokeAndFill' || figureDrawing === 'Ellipse') {
+        paint.drawEllipseStrokeAndFill(x1, y1, x2, y2, tempWidthPen, inputEllipseColorStroke.value, inputEllipseColorFill.value);
+    } else if (figureDrawing === 'EllipseFill') {
+        paint.drawEllipseFill(x1, y1, x2, y2, tempWidthPen, inputEllipseColorFill.value);
+    } else if (figureDrawing === 'EllipseStroke') {
+        paint.drawEllipseStroke(x1, y1, x2, y2, tempWidthPen, inputEllipseColorStroke.value);
     } else if (figureDrawing === 'Eraser') {
         paint.drawBrush(e.offsetX, e.offsetY, tempWidthPen, window.getComputedStyle(canvas).backgroundColor);
     }
@@ -75,6 +91,14 @@ inputWidthPen.addEventListener('click', function() {
 });
 
 radioArrPens.forEach(radioBtn => radioBtn.addEventListener(('click'), function() {
+    figureDrawing = radioBtn.value;
+}));
+
+radioArrRectangle.forEach(radioBtn => radioBtn.addEventListener(('click'), function() {
+    figureDrawing = radioBtn.value;
+}));
+
+radioArrEllipse.forEach(radioBtn => radioBtn.addEventListener(('click'), function() {
     figureDrawing = radioBtn.value;
 }));
 
@@ -95,6 +119,7 @@ radioLinePen.addEventListener('click', function() {
 });
 
 radioRectanglePen.addEventListener('click', function() {
+    radioArrRectangle[2].checked = true;
     changeDisplayStyleArrayTags(labelsStyleRectangle, 'block');
     changeDisplayStyleArrayTags(labelsStylePen, 'none');
     changeDisplayStyleArrayTags(labelsStyleEllipse, 'none');
@@ -102,6 +127,7 @@ radioRectanglePen.addEventListener('click', function() {
 });
 
 radioEllipsePen.addEventListener('click', function() {
+    radioArrEllipse[2].checked = true;
     changeDisplayStyleArrayTags(labelsStyleEllipse, 'block');
     changeDisplayStyleArrayTags(labelsStylePen, 'none');
     changeDisplayStyleArrayTags(labelsStyleRectangle, 'none');
@@ -113,6 +139,31 @@ radioClearPen.addEventListener('click', function() {
     changeDisplayStyleArrayTags(labelsStyleRectangle, 'none');
     changeDisplayStyleArrayTags(labelsStyleEllipse, 'none');
     spanWidthPaint.innerHTML = 'Товщина гумки: ';
+});
+
+radioRectangleStroke.addEventListener('click', function() {
+    changeDisplayStyle(labelsStyleRectangle[4], 'block');
+    changeDisplayStyle(labelsStyleRectangle[3], 'none');
+});
+radioRectangleFill.addEventListener('click', function() {
+    changeDisplayStyle(labelsStyleRectangle[4], 'none');
+    changeDisplayStyle(labelsStyleRectangle[3], 'block');
+});
+radioRectangleStrokeAndFill.addEventListener('click', function() {
+    changeDisplayStyle(labelsStyleRectangle[4], 'block');
+    changeDisplayStyle(labelsStyleRectangle[3], 'block');
+});
+radioEllipseStroke.addEventListener('click', function() {
+    changeDisplayStyle(labelsStyleEllipse[3], 'none');
+    changeDisplayStyle(labelsStyleEllipse[4], 'block');
+});
+radioEllipseFill.addEventListener('click', function() {
+    changeDisplayStyle(labelsStyleEllipse[3], 'block');
+    changeDisplayStyle(labelsStyleEllipse[4], 'none');
+});
+radioEllipseStrokeAndFill.addEventListener('click', function() {
+    changeDisplayStyle(labelsStyleEllipse[3], 'block');
+    changeDisplayStyle(labelsStyleEllipse[4], 'block');
 });
 
 btnClearCanvas.addEventListener('click', function() {
