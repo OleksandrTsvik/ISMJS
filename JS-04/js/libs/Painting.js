@@ -1,4 +1,4 @@
-export class Figure {
+export class Painting {
     _canvas;
     _ctx;
     _color;
@@ -10,7 +10,7 @@ export class Figure {
         this._isMouseDown = false;
     }
 
-    draw(x, y, radius, color = this._color) {
+    drawBrush(x, y, radius, color = this._color) {
         if (this._isMouseDown) {
             this._ctx.lineWidth = 2 * radius;
             this._ctx.fillStyle = color;
@@ -28,16 +28,56 @@ export class Figure {
         }
     }
 
+    drawLine(x1, y1, x2, y2, radius, color = this._color) {
+        if (!this._isMouseDown) {
+            this._ctx.beginPath();
+            this._ctx.lineWidth = 2 * radius;
+            this._ctx.strokeStyle = color;
+            this._ctx.moveTo(x1, y1);
+            this._ctx.lineTo(x2, y2);
+            this._ctx.stroke();
+            this._ctx.closePath();
+        }
+    }
+
+    // drawRectangle() {}
+
+    // drawEllipse() {}
+
     clear() {
         this._ctx.clearRect(0, 0, this._canvas.offsetWidth, this._canvas.offsetHeight);
     }
 
-    switchMouseDown() {
+    changeMouseDown() {
         this._isMouseDown = !this._isMouseDown;
         this._ctx.beginPath();
     }
 
+    setCanvas(value) {
+        this._canvas = value;
+    }
+    getCanvas() {
+        return this._canvas;
+    }
+
+    setCtx(value) {
+        this._ctx = value;
+    }
+    getCtx() {
+        return this._ctx;
+    }
+
     setColor(value) {
         this._color = value;
+    }
+    getColor() {
+        return this._color;
+    }
+
+    setIsMouseDown(value) {
+        this._isMouseDown = value;
+    }
+    getIsMouseDown() {
+        return this._isMouseDown;
     }
 }

@@ -7,7 +7,7 @@
     <script async src="js/index.js" type="module"></script>
 </head>
 <body>
-    <div class="row">
+    <div class="row paint">
         <div class="col-2">
             <label>
                 Колір пензлика:
@@ -19,14 +19,26 @@
                 <datalist id="list-width-pen"></datalist>
             </label>
             <label>
-                <input type="button" id="clear-pen" value="Гумка" />
+                <input type="radio" id="brush-pen" name="pen" value="Brush" />Пензлик
+            </label>
+            <label>
+                <input type="radio" id="line-pen" name="pen" value="Line" />Лінія
+            </label>
+            <label>
+                <input type="radio" id="rectangle-pen" name="pen" value="Rectangle" disabled />Прямокутник
+            </label>
+            <label>
+                <input type="radio" id="ellipse-pen" name="pen" value="Ellipse" disabled />Еліпс
+            </label>
+            <label>
+                <input type="radio" id="clear-pen" name="pen" value="Eraser" />Гумка
             </label>
             <label>
                 <input type="button" id="clear-c1" value="Очистити" />
             </label>
         </div>
         <div class="col-10">
-            <canvas id="c1"></canvas>
+            <canvas id="c1">Your browser does not support Canvas!</canvas>
         </div>
     </div>
 </body>
