@@ -32,96 +32,51 @@ export class Painting {
 
     drawLine(x1, y1, x2, y2, radius, color = this._colorStroke) {
         if (!this._isMouseDown) {
-            this._ctx.beginPath();
-            this._ctx.lineWidth = 2 * radius;
-            this._ctx.strokeStyle = color;
+            this.beginPath(radius, color, color);
             this._ctx.moveTo(x1, y1);
             this._ctx.lineTo(x2, y2);
-            this._ctx.stroke();
-            this._ctx.closePath();
+            this.closePath();
         }
     }
 
-    drawRectangleStrokeAndFill(x1, y1, x2, y2, radius, colorStroke = 'black', colorFill = 'black') {
+    drawRectangle(x1, y1, x2, y2, radius, colorStroke = 'black', colorFill = 'black', isBorder = true, isFill = false) {
         if (!this._isMouseDown) {
-            this._ctx.beginPath();
-            this._ctx.lineWidth = 2 * radius;
-            this._ctx.fillStyle = colorFill;
-            this._ctx.strokeStyle = colorStroke;
-
+            this.beginPath(radius, colorStroke, colorFill);
             this._ctx.rect(x1, y1, x2 - x1, y2 - y1);
-            this._ctx.stroke();
-            this._ctx.fill();
-            this._ctx.closePath();
+            this.closePath(isBorder, isFill);
         }
     }
 
-    drawRectangleFill(x1, y1, x2, y2, radius, colorFill = 'black') {
+    drawCircle(x1, y1, x2, y2, radius, colorStroke = 'black', colorFill = 'black', isBorder = true, isFill = false) {
         if (!this._isMouseDown) {
-            this._ctx.beginPath();
-            this._ctx.lineWidth = 2 * radius;
-            this._ctx.fillStyle = colorFill;
-
-            this._ctx.rect(x1, y1, x2 - x1, y2 - y1);
-            this._ctx.fill();
-            this._ctx.closePath();
-        }
-    }
-
-    drawRectangleStroke(x1, y1, x2, y2, radius, colorStroke = 'black') {
-        if (!this._isMouseDown) {
-            this._ctx.beginPath();
-            this._ctx.lineWidth = 2 * radius;
-            this._ctx.strokeStyle = colorStroke;
-
-            this._ctx.rect(x1, y1, x2 - x1, y2 - y1);
-            this._ctx.stroke();
-            this._ctx.closePath();
-        }
-    }
-
-    drawEllipseStrokeAndFill(x1, y1, x2, y2, radius, colorStroke = 'black', colorFill = 'black') {
-        if (!this._isMouseDown) {
-            this._ctx.beginPath();
-            this._ctx.lineWidth = 2 * radius;
-            this._ctx.fillStyle = colorFill;
-            this._ctx.strokeStyle = colorStroke;
-
+            this.beginPath(radius, colorStroke, colorFill);
             this._ctx.arc(x1, y1,
                     Math.pow(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2), 0.5) / 2,
                     0, 2 * Math.PI, false);
-            this._ctx.stroke();
-            this._ctx.fill();
-            this._ctx.closePath();
+            this.closePath(isBorder, isFill);
         }
     }
 
-    drawEllipseFill(x1, y1, x2, y2, radius, colorFill = 'black') {
+    drawEllipse(x1, y1, x2, y2, radius, colorStroke = 'black', colorFill = 'black', isBorder = true, isFill = false) {
         if (!this._isMouseDown) {
-            this._ctx.beginPath();
-            this._ctx.lineWidth = 2 * radius;
-            this._ctx.fillStyle = colorFill;
-
-            this._ctx.arc(x1, y1,
-                    Math.pow(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2), 0.5) / 2,
-                    0, 2 * Math.PI, false);
-            this._ctx.fill();
-            this._ctx.closePath();
+            this.beginPath(radius, colorStroke, colorFill);
+            this._ctx.ellipse(x1, y1, Math.abs(x2 - x1), Math.abs(y2 - y1), 0, 0, 2 * Math.PI, false);
+            this.closePath(isBorder, isFill);
         }
     }
 
-    drawEllipseStroke(x1, y1, x2, y2, radius, colorStroke = 'black') {
-        if (!this._isMouseDown) {
-            this._ctx.beginPath();
-            this._ctx.lineWidth = 2 * radius;
-            this._ctx.strokeStyle = colorStroke;
-
-            this._ctx.arc(x1, y1,
-                    Math.pow(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2), 0.5) / 2,
-                    0, 2 * Math.PI, false);
+    beginPath(radius, colorStroke, colorFill) {
+        this._ctx.beginPath();
+        this._ctx.lineWidth = 2 * radius;
+        this._ctx.fillStyle = colorFill;
+        this._ctx.strokeStyle = colorStroke;
+    }
+    closePath(isBorder = true, isFill = false) {
+        if (isBorder || (isBorder === false && isFill === false))
             this._ctx.stroke();
-            this._ctx.closePath();
-        }
+        if (isFill)
+            this._ctx.fill();
+        this._ctx.closePath();
     }
 
     clear() {

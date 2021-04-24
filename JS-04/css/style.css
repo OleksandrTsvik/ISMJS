@@ -52,6 +52,7 @@ body {
     padding: 2px 15px;
 }
 .paint .style-rectangle,
+.paint .style-circle,
 .paint .style-ellipse {
     background-color: #969696;
 }

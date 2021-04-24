@@ -10,6 +10,7 @@ let
     listWidthPen = document.getElementById('list-width-pen'),
     radioArrPens = document.getElementsByName('pen'),
     radioArrRectangle = document.getElementsByName('rectangle'),
+    radioArrCircle = document.getElementsByName('circle'),
     radioArrEllipse = document.getElementsByName('ellipse'),
     radioBrushPen = document.getElementById('brush-pen'),
     radioLinePen = document.getElementById('line-pen'),
@@ -17,6 +18,10 @@ let
     radioRectangleStroke = document.getElementById('rectangle-stroke'),
     radioRectangleFill = document.getElementById('rectangle-fill'),
     radioRectangleStrokeAndFill = document.getElementById('rectangle-stroke-fill'),
+    radioCirclePen = document.getElementById('circle-pen'),
+    radioCircleStroke = document.getElementById('circle-stroke'),
+    radioCircleFill = document.getElementById('circle-fill'),
+    radioCircleStrokeAndFill = document.getElementById('circle-stroke-fill'),
     radioEllipsePen = document.getElementById('ellipse-pen'),
     radioEllipseStroke = document.getElementById('ellipse-stroke'),
     radioEllipseFill = document.getElementById('ellipse-fill'),
@@ -24,9 +29,12 @@ let
     radioClearPen = document.getElementById('clear-pen'),
     labelsStylePen = document.getElementsByClassName('style-pen'),
     labelsStyleRectangle = document.getElementsByClassName('style-rectangle'),
+    labelsStyleCircle = document.getElementsByClassName('style-circle'),
     labelsStyleEllipse = document.getElementsByClassName('style-ellipse'),
     inputRectangleColorFill = document.getElementById('rectangle-color-fill'),
     inputRectangleColorStroke = document.getElementById('rectangle-color-stroke'),
+    inputCircleColorFill = document.getElementById('circle-color-fill'),
+    inputCircleColorStroke = document.getElementById('circle-color-stroke'),
     inputEllipseColorFill = document.getElementById('ellipse-color-fill'),
     inputEllipseColorStroke = document.getElementById('ellipse-color-stroke'),
     btnClearCanvas = document.getElementById('clear-c1');
@@ -64,17 +72,23 @@ canvas.addEventListener('mousemove', function(e) {
     } else if (figureDrawing === 'Line') {
         paint.drawLine(x1, y1, x2, y2, tempWidthPen, selectedColorPen.value);
     } else if (figureDrawing === 'RectangleStrokeAndFill' || figureDrawing === 'Rectangle') {
-        paint.drawRectangleStrokeAndFill(x1, y1, x2, y2, tempWidthPen, inputRectangleColorStroke.value, inputRectangleColorFill.value);
+        paint.drawRectangle(x1, y1, x2, y2, tempWidthPen, inputRectangleColorStroke.value, inputRectangleColorFill.value, true, true);
     } else if (figureDrawing === 'RectangleFill') {
-        paint.drawRectangleFill(x1, y1, x2, y2, tempWidthPen, inputRectangleColorFill.value);
+        paint.drawRectangle(x1, y1, x2, y2, tempWidthPen, inputRectangleColorStroke.value, inputRectangleColorFill.value, false, true);
     } else if (figureDrawing === 'RectangleStroke') {
-        paint.drawRectangleStroke(x1, y1, x2, y2, tempWidthPen, inputRectangleColorStroke.value);
+        paint.drawRectangle(x1, y1, x2, y2, tempWidthPen, inputRectangleColorStroke.value, inputRectangleColorFill.value);
+    } else if (figureDrawing === 'CircleStrokeAndFill' || figureDrawing === 'Circle') {
+        paint.drawCircle(x1, y1, x2, y2, tempWidthPen, inputCircleColorStroke.value, inputCircleColorFill.value, true, true);
+    } else if (figureDrawing === 'CircleFill') {
+        paint.drawCircle(x1, y1, x2, y2, tempWidthPen, inputCircleColorStroke.value, inputCircleColorFill.value, false, true);
+    } else if (figureDrawing === 'CircleStroke') {
+        paint.drawCircle(x1, y1, x2, y2, tempWidthPen, inputCircleColorStroke.value, inputCircleColorFill.value);
     } else if (figureDrawing === 'EllipseStrokeAndFill' || figureDrawing === 'Ellipse') {
-        paint.drawEllipseStrokeAndFill(x1, y1, x2, y2, tempWidthPen, inputEllipseColorStroke.value, inputEllipseColorFill.value);
+        paint.drawEllipse(x1, y1, x2, y2, tempWidthPen, inputEllipseColorStroke.value, inputEllipseColorFill.value, true, true);
     } else if (figureDrawing === 'EllipseFill') {
-        paint.drawEllipseFill(x1, y1, x2, y2, tempWidthPen, inputEllipseColorFill.value);
+        paint.drawEllipse(x1, y1, x2, y2, tempWidthPen, inputEllipseColorStroke.value, inputEllipseColorFill.value, false, true);
     } else if (figureDrawing === 'EllipseStroke') {
-        paint.drawEllipseStroke(x1, y1, x2, y2, tempWidthPen, inputEllipseColorStroke.value);
+        paint.drawEllipse(x1, y1, x2, y2, tempWidthPen, inputEllipseColorStroke.value, inputEllipseColorFill.value);
     } else if (figureDrawing === 'Eraser') {
         paint.drawBrush(e.offsetX, e.offsetY, tempWidthPen, window.getComputedStyle(canvas).backgroundColor);
     }
@@ -98,6 +112,10 @@ radioArrRectangle.forEach(radioBtn => radioBtn.addEventListener(('click'), funct
     figureDrawing = radioBtn.value;
 }));
 
+radioArrCircle.forEach(radioBtn => radioBtn.addEventListener(('click'), function() {
+    figureDrawing = radioBtn.value;
+}));
+
 radioArrEllipse.forEach(radioBtn => radioBtn.addEventListener(('click'), function() {
     figureDrawing = radioBtn.value;
 }));
@@ -105,6 +123,7 @@ radioArrEllipse.forEach(radioBtn => radioBtn.addEventListener(('click'), functio
 radioBrushPen.addEventListener('click', function() {
     changeDisplayStyleArrayTags(labelsStylePen, 'block');
     changeDisplayStyleArrayTags(labelsStyleRectangle, 'none');
+    changeDisplayStyleArrayTags(labelsStyleCircle, 'none');
     changeDisplayStyleArrayTags(labelsStyleEllipse, 'none');
     spanColorPaint.innerHTML = 'Колір пензлика: ';
     spanWidthPaint.innerHTML = 'Товщина пензлика: ';
@@ -113,6 +132,7 @@ radioBrushPen.addEventListener('click', function() {
 radioLinePen.addEventListener('click', function() {
     changeDisplayStyleArrayTags(labelsStylePen, 'block');
     changeDisplayStyleArrayTags(labelsStyleRectangle, 'none');
+    changeDisplayStyleArrayTags(labelsStyleCircle, 'none');
     changeDisplayStyleArrayTags(labelsStyleEllipse, 'none');
     spanColorPaint.innerHTML = 'Колір лінії: ';
     spanWidthPaint.innerHTML = 'Товщина лінії: ';
@@ -122,6 +142,16 @@ radioRectanglePen.addEventListener('click', function() {
     radioArrRectangle[2].checked = true;
     changeDisplayStyleArrayTags(labelsStyleRectangle, 'block');
     changeDisplayStyleArrayTags(labelsStylePen, 'none');
+    changeDisplayStyleArrayTags(labelsStyleCircle, 'none');
+    changeDisplayStyleArrayTags(labelsStyleEllipse, 'none');
+    spanWidthPaint.innerHTML = 'Ширина контуру: ';
+});
+
+radioCirclePen.addEventListener('click', function() {
+    radioArrCircle[2].checked = true;
+    changeDisplayStyleArrayTags(labelsStyleCircle, 'block');
+    changeDisplayStyleArrayTags(labelsStylePen, 'none');
+    changeDisplayStyleArrayTags(labelsStyleRectangle, 'none');
     changeDisplayStyleArrayTags(labelsStyleEllipse, 'none');
     spanWidthPaint.innerHTML = 'Ширина контуру: ';
 });
@@ -131,12 +161,14 @@ radioEllipsePen.addEventListener('click', function() {
     changeDisplayStyleArrayTags(labelsStyleEllipse, 'block');
     changeDisplayStyleArrayTags(labelsStylePen, 'none');
     changeDisplayStyleArrayTags(labelsStyleRectangle, 'none');
+    changeDisplayStyleArrayTags(labelsStyleCircle, 'none');
     spanWidthPaint.innerHTML = 'Ширина контуру: ';
 });
 
 radioClearPen.addEventListener('click', function() {
     changeDisplayStyleArrayTags(labelsStylePen, 'none');
     changeDisplayStyleArrayTags(labelsStyleRectangle, 'none');
+    changeDisplayStyleArrayTags(labelsStyleCircle, 'none');
     changeDisplayStyleArrayTags(labelsStyleEllipse, 'none');
     spanWidthPaint.innerHTML = 'Товщина гумки: ';
 });
@@ -152,6 +184,18 @@ radioRectangleFill.addEventListener('click', function() {
 radioRectangleStrokeAndFill.addEventListener('click', function() {
     changeDisplayStyle(labelsStyleRectangle[4], 'block');
     changeDisplayStyle(labelsStyleRectangle[3], 'block');
+});
+radioCircleStroke.addEventListener('click', function() {
+    changeDisplayStyle(labelsStyleCircle[3], 'none');
+    changeDisplayStyle(labelsStyleCircle[4], 'block');
+});
+radioCircleFill.addEventListener('click', function() {
+    changeDisplayStyle(labelsStyleCircle[3], 'block');
+    changeDisplayStyle(labelsStyleCircle[4], 'none');
+});
+radioCircleStrokeAndFill.addEventListener('click', function() {
+    changeDisplayStyle(labelsStyleCircle[3], 'block');
+    changeDisplayStyle(labelsStyleCircle[4], 'block');
 });
 radioEllipseStroke.addEventListener('click', function() {
     changeDisplayStyle(labelsStyleEllipse[3], 'none');
@@ -177,6 +221,7 @@ radioArrPens[0].checked = true;
 figureDrawing = 'Brush';
 inputWidthPen.value = 10;
 changeDisplayStyleArrayTags(labelsStyleRectangle, 'none');
+changeDisplayStyleArrayTags(labelsStyleCircle, 'none');
 changeDisplayStyleArrayTags(labelsStyleEllipse, 'none');
 
 for (let i = 1; i <= 2000; ) {

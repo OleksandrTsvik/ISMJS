@@ -4,6 +4,7 @@
     <list default="true" id="95fa8155-c9bc-46b6-b2cb-4d0eef5cf868" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../JS-03/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../JS-03/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/libs/Painting.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/libs/Painting.js" afterDir="false" />
@@ -38,10 +39,15 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/js/libs" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Programming projects\ISM\JavaScript\JS-04\js\libs" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -53,6 +59,10 @@
       <updated>1618321247231</updated>
       <workItem from="1618321248607" duration="13955000" />
       <workItem from="1618399014890" duration="19461000" />
+      <workItem from="1618420022278" duration="279000" />
+      <workItem from="1618999574379" duration="362000" />
+      <workItem from="1619169485812" duration="155000" />
+      <workItem from="1619294295825" duration="5516000" />
     </task>
     <servers />
   </component>
