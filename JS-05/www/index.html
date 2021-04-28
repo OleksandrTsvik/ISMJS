@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chat</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="/socket.io/socket.io.js" defer></script>
+    <script src="client.js" defer></script>
+</head>
+<body>
+    <div>
+        <h1>Chat</h1>
+        <form>
+            <div>
+                <label for="user-nick">Nick:</label><br />
+                <input type="text" id="user-nick" />
+                <button type="button" id="enter-nick">Enter</button>
+            </div>
+            <div>
+                <label for="user-message">Message:</label><br />
+                <input type="text" id="user-message" />
+                <button type="button" id="send-message">Send</button>
+            </div>
+        </form>
+        <div id="list-users">
+
+        </div>
+        <div id="list-messages-users">
+
+        </div>
+    </div>
+</body>
+</html>
