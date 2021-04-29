@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>Chat</title>
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/chat.css" />
     <script src="/socket.io/socket.io.js" defer></script>
     <script src="client.js" defer></script>
 </head>
 <body>
-    <div>
-        <h1>Chat</h1>
+    <h1>Chat</h1>
+    <div class="chat">
+        <h2>Кількість користувачів онлайн: <span id="count-users-online">0</span>.</h2>
         <form>
             <div>
                 <label for="user-nick">Nick:</label><br />
                 <input type="text" id="user-nick" />
-                <button type="button" id="enter-nick">Enter</button>
             </div>
             <div>
                 <label for="user-message">Message:</label><br />
@@ -22,12 +22,19 @@
                 <button type="button" id="send-message">Send</button>
             </div>
         </form>
+        <p>Підключені користувачі:</p>
         <div id="list-users">
 
         </div>
+        <hr />
+        <p>Повідомлення:</p>
         <div id="list-messages-users">
 
         </div>
+    </div>
+    <div class="page-hbs">
+        <h2>Page Hbs</h2>
+        <h3>Посилання на <a href="http://localhost:3000/handlebar">page hbs</a>.</h3>
     </div>
 </body>
 </html>

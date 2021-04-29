@@ -1,0 +1,119 @@
+body, input, button {
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    word-spacing: 2px;
+}
+
+h1 {
+    text-align: center;
+    padding: 10px;
+    color: black;
+    background-color: lightblue;
+    border-radius: 12px;
+    margin-bottom: 21px;
+}
+
+div.chat {
+    padding: 10px;
+    background-color: lightsalmon;
+    border-radius: 12px;
+}
+div.chat form label {
+    font-size: 18px;
+    font-weight: bold;
+    margin-left: 25px;
+}
+div.chat form div:nth-of-type(2) {
+    margin-top: 20px;
+}
+div.chat input {
+    border: 2px black solid;
+    padding: 10px 15px;
+    border-radius: 10px;
+}
+div.chat input:focus {
+    outline: none;
+    border-color: salmon;
+    border-width: 4px;
+}
+div.chat button {
+    font-weight: bolder;
+    color: black;
+    background-color: white;
+    border: 2px black solid;
+    padding: 10px 15px;
+    border-radius: 10px;
+}
+div.chat button:hover {
+    color: white;
+    background-color: black;
+    border-color: white;
+}
+div.chat #user-message {
+    width: 80%;
+}
+div.chat p {
+    display: inline-block;
+    background-color: darksalmon;
+    padding: 5px 15px;
+    border-radius: 8px;
+}
+div.chat #list-users {
+    height: 200px;
+    overflow-y: auto;
+}
+div.chat #list-messages-users {
+    height: 400px;
+    overflow-y: auto;
+}
+div.chat #list-users div {
+    display: block;
+    word-wrap: break-word;
+    margin-left: 20px;
+    margin-right: 10px;
+    background-color: salmon;
+    padding: 5px 15px;
+    border-radius: 10px;
+}
+div.chat #list-messages-users div {
+    position: relative;
+    word-wrap: break-word;
+    margin-left: 10px;
+    margin-right: 10px;
+    background-color: #D0E5E0;
+    padding: 10px 15px 30px;
+    border-radius: 10px;
+}
+div.chat #list-users div:nth-of-type(n+2),
+div.chat #list-messages-users div:nth-of-type(n+2) {
+    margin-top: 5px;
+}
+div.chat #list-messages-users div span {
+    color: white;
+    background-color: #774455;
+    padding: 2px 2px 5px 10px;
+    margin-right: 4px;
+    border-radius: 12px 6px 6px 12px;
+}
+div.chat #list-messages-users div span.date {
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    color: black;
+    background-color: white;
+    padding: 2px 4px;
+    border-radius: 8px;
+}
+div.chat hr {
+    color: white;
+    background-color: white;
+    height: 2px;
+}
+
+div.page-hbs {
+    margin-top: 21px;
+    padding: 10px;
+    background-color: lightseagreen;
+    border-radius: 12px;
+}
