@@ -4,8 +4,6 @@
     <list default="true" id="95fa8155-c9bc-46b6-b2cb-4d0eef5cf868" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../JS-03/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../JS-03/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/libs/Painting.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/libs/Painting.js" afterDir="false" />
     </list>
@@ -39,7 +37,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/js/libs" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -63,6 +61,10 @@
       <workItem from="1618999574379" duration="362000" />
       <workItem from="1619169485812" duration="155000" />
       <workItem from="1619294295825" duration="5516000" />
+      <workItem from="1619539634808" duration="63000" />
+      <workItem from="1619892885283" duration="11553000" />
+      <workItem from="1619939724211" duration="1323000" />
+      <workItem from="1619973241516" duration="7036000" />
     </task>
     <servers />
   </component>
